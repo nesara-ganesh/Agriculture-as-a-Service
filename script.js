@@ -53,13 +53,13 @@ locationBtn.addEventListener("click", () =>{
 });
 
 function requestApi(city){
-    api = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=39ca4bc9a0e7a164599cad6c27279c92`;
+    api = `API URL`;
     fetchData();
 }
 
 function onSuccess(position){
     const {latitude, longitude} = position.coords;
-    api = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=39ca4bc9a0e7a164599cad6c27279c92`;
+    api = `API URL`;
     fetchData();
 }
 
