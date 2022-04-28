@@ -1,0 +1,671 @@
+/* Google Font Import - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root{
+    /* ===== Colors ===== */
+    --body-color: #E4E9F7;
+    --sidebar-color: #FFF;
+    --primary-color: #695CFE;
+    --primary-color-light: #F6F5FF;
+    --toggle-color: #DDD;
+    --text-color: #707070;
+
+    /* ====== Transition ====== */
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.3s ease;
+    --tran-05: all 0.3s ease;
+}
+
+body{
+    min-height: 100vh;
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+}
+
+::selection{
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+body.dark{
+    --body-color: #18191a;
+    --sidebar-color: #242526;
+    --primary-color: #3a3b3c;
+    --primary-color-light: #3a3b3c;
+    --toggle-color: #fff;
+    --text-color: #ccc;
+}
+
+/* ===== Sidebar ===== */
+ .sidebar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 350px;
+    padding: 10px 14px;
+    background: var(--sidebar-color);
+    transition: var(--tran-05);
+    z-index: 100;  
+}
+.sidebar.close{
+    width: 350px;
+}
+
+/* ===== Reusable code - Here ===== */
+.sidebar li{
+    height: 50px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.sidebar header .image,
+.sidebar .icon{
+    min-width: 60px;
+    border-radius: 6px;
+}
+
+.sidebar .icon{
+    min-width: 60px;
+    border-radius: 6px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.sidebar .text,
+.sidebar .icon{
+    color: var(--text-color);
+    transition: var(--tran-03);
+}
+
+.sidebar .text{
+    font-size: 17px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 1;
+}
+.sidebar.close .text{
+    opacity: 0;
+}
+/* =========================== */
+
+.sidebar header{
+    position: relative;
+}
+
+.sidebar header .image-text{
+    display: flex;
+    align-items: center;
+}
+.sidebar header .logo-text{
+    display: flex;
+    flex-direction: column;
+}
+header .image-text .name {
+    margin-top: 2px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+header .image-text .profession{
+    font-size: 16px;
+    margin-top: -2px;
+    display: block;
+}
+
+.sidebar header .image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar header .image img{
+    width: 40px;
+    border-radius: 6px;
+}
+
+.sidebar header .toggle{
+    position: absolute;
+    top: 50%;
+    right: -25px;
+    transform: translateY(-50%) rotate(180deg);
+    height: 25px;
+    width: 25px;
+    background-color: var(--primary-color);
+    color: var(--sidebar-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    cursor: pointer;
+    transition: var(--tran-05);
+}
+
+body.dark .sidebar header .toggle{
+    color: var(--text-color);
+}
+
+.sidebar.close .toggle{
+    transform: translateY(-50%) rotate(0deg);
+}
+
+.sidebar .menu{
+    margin-top: 40px;
+}
+
+.sidebar li.search-box{
+    border-radius: 6px;
+    background-color: var(--primary-color-light);
+    cursor: pointer;
+    transition: var(--tran-05);
+}
+
+.sidebar li.search-box input{
+    height: 100%;
+    width: 100%;
+    outline: none;
+    border: none;
+    background-color: var(--primary-color-light);
+    color: var(--text-color);
+    border-radius: 6px;
+    font-size: 17px;
+    font-weight: 500;
+    transition: var(--tran-05);
+}
+.sidebar li a{
+    list-style: none;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: var(--tran-03);
+}
+
+.sidebar li a:hover{
+    background-color: var(--primary-color);
+}
+.sidebar li a:hover .icon,
+.sidebar li a:hover .text{
+    color: var(--sidebar-color);
+}
+body.dark .sidebar li a:hover .icon,
+body.dark .sidebar li a:hover .text{
+    color: var(--text-color);
+}
+
+.sidebar .menu-bar{
+    height: calc(100% - 55px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y: scroll;
+}
+.menu-bar::-webkit-scrollbar{
+    display: none;
+}
+.sidebar .menu-bar .mode{
+    border-radius: 6px;
+    background-color: var(--primary-color-light);
+    position: relative;
+    transition: var(--tran-05);
+}
+
+.menu-bar .mode .sun-moon{
+    height: 50px;
+    width: 60px;
+}
+
+.mode .sun-moon i{
+    position: absolute;
+}
+.mode .sun-moon i.sun{
+    opacity: 0;
+}
+body.dark .mode .sun-moon i.sun{
+    opacity: 1;
+}
+body.dark .mode .sun-moon i.moon{
+    opacity: 0;
+}
+
+.menu-bar .bottom-content .toggle-switch{
+    position: absolute;
+    right: 0;
+    height: 100%;
+    min-width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    cursor: pointer;
+}
+.toggle-switch .switch{
+    position: relative;
+    height: 22px;
+    width: 40px;
+    border-radius: 25px;
+    background-color: var(--toggle-color);
+    transition: var(--tran-05);
+}
+
+.switch::before{
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    background-color: var(--sidebar-color);
+    transition: var(--tran-04);
+}
+
+body.dark .switch::before{
+    left: 20px;
+}
+
+
+/* Main Section*/
+.home{
+    position: absolute;
+    top: 0;
+    top: 0;
+    left: 350px;
+    height: 100vh;
+    width: 1180px;
+    background-color: var(--body-color);
+    transition: var(--tran-05);
+}
+.home .text{
+    font-size: 20px;
+    font-weight: 500;
+    color: var(--text-color);
+    padding: 12px 60px;
+}
+
+
+.sidebar.close ~ .home{
+    left: 350px;
+    height: 100vh;
+    width: 1180px;
+}
+body.dark .home .text{
+    color: var(--text-color);
+}
+
+/* Index.html Additional Information*/
+/*
+.details{
+  position: absolute;
+  top: 150px;
+  top: 150px;
+  left: 350px;
+  height: 100vh;
+  width: calc(100% - 250px);
+  background-color: var(--body-color);
+  transition: var(--tran-05);
+}
+.details .text{
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-color);
+  padding: 12px 60px;
+}
+
+
+.sidebar.close ~ .details{
+  left: 578px;
+  height: 100vh;
+  width: calc(100% - 78px);
+}
+body.dark .details .text{
+  color: var(--text-color);
+}
+*/
+
+/* Weather API*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #43AFFC;
+}
+::selection{
+  color: #fff;
+  background: #43AFFC;
+}
+.wrapper{
+  width: 400px;
+  background: #fff;
+  border-radius: 7px;
+  box-shadow: 7px 7px 20px rgba(0, 0, 0, 0.05);
+}
+.wrapper header{
+  display: flex;
+  font-size: 21px;
+  font-weight: 500;
+  color: #43AFFC;
+  padding: 16px 15px;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+}
+header i{
+  font-size: 0em;
+  cursor: pointer;
+  margin-right: 8px;
+}
+.wrapper.active header i{
+  margin-left: 5px;
+  font-size: 30px;
+}
+.wrapper .input-part{
+  margin: 20px 25px 30px;
+}
+.wrapper.active .input-part{
+  display: none;
+}
+.input-part .info-txt{
+  display: none;
+  font-size: 17px;
+  text-align: center;
+  padding: 12px 10px;
+  border-radius: 7px;
+  margin-bottom: 15px;
+}
+.input-part .info-txt.error{
+  color: #721c24;
+  display: block;
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+}
+.input-part .info-txt.pending{
+  color: #0c5460;
+  display: block;
+  background: #d1ecf1;
+  border: 1px solid #bee5eb;
+}
+.input-part :where(input, button){
+  width: 100%;
+  height: 55px;
+  border: none;
+  outline: none;
+  font-size: 18px;
+  border-radius: 7px;
+}
+.input-part input{
+  text-align: center;
+  padding: 0 15px;
+  border: 1px solid #ccc;
+}
+.input-part input:is(:focus, :valid){
+  border: 2px solid #43AFFC;
+}
+.input-part input::placeholder{
+  color: #bfbfbf;
+}
+.input-part .separator{
+  height: 1px;
+  width: 100%;
+  margin: 25px 0;
+  background: #ccc;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.separator::before{
+  content: "or";
+  color: #b3b3b3;
+  font-size: 19px;
+  padding: 0 15px;
+  background: #fff;
+}
+.input-part button{
+  color: #fff;
+  cursor: pointer;
+  background: #43AFFC;
+  transition: 0.3s ease;
+}
+.input-part button:hover{
+  background: #1d9ffc;
+}
+
+.wrapper .weather-part{
+  display: none;
+  margin: 30px 0 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.wrapper.active .weather-part{
+  display: flex;
+}
+.weather-part img{
+  max-width: 125px;
+}
+.weather-part .temp{
+  display: flex;
+  font-weight: 500;
+  font-size: 72px;
+}
+.weather-part .temp .numb{
+  font-weight: 600;
+}
+.weather-part .temp .deg{
+  font-size: 40px;
+  display: block;
+  margin: 10px 5px 0 0;
+}
+.weather-part .weather{
+  font-size: 21px;
+  text-align: center;
+  margin: -5px 20px 15px;
+}
+.weather-part .location{
+  display: flex;
+  font-size: 19px;
+  padding: 0 20px;
+  text-align: center;
+  margin-bottom: 30px;
+  align-items: flex-start;
+}
+.location i{
+  font-size: 22px;
+  margin: 4px 5px 0 0;
+}
+.weather-part .bottom-details{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  border-top: 1px solid #ccc;
+}
+.bottom-details .column{
+  display: flex;
+  width: 100%;
+  padding: 15px 0;
+  align-items: center;
+  justify-content: center;
+}
+.column i{
+  color: #5DBBFF;
+  font-size: 40px;
+}
+.column.humidity{
+  border-left: 1px solid #ccc;
+}
+.column .details{
+  margin-left: 3px;
+}
+.details .temp, .humidity span{
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: -3px;
+}
+.details .temp .deg{
+  margin: 0;
+  font-size: 17px;
+  padding: 0 2px 0 1px;
+}
+.column .details p{
+  font-size: 14px;
+  margin-top: -6px;
+}
+.humidity i{
+  font-size: 37px;
+}
+
+
+
+/* Bar Graph Market Share */
+
+
+
+/* Reservoir Level Page*/
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #7ce2af
+}
+
+th {
+  background-color: #7c0f65;
+  color: white;
+}
+
+.button {
+  position: relative;
+  text-align: center;
+  padding: 20px;
+  border: 4px solid rgb(55, 12, 211);
+  background: rgba(20, 192, 4, 0.5);
+  color: rgb(230, 36, 78);
+  outline: none;
+  border-radius: 30px;
+  font-size: 30px;
+  width: 500px;
+
+}
+
+.button:hover {
+  color: black;
+  background: white;
+}
+
+
+
+
+/* Footer Design*/
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background: #fcfcfc;
+  font-family: sans-serif;
+}
+footer{
+  position: absolute;
+  bottom: 0;
+  left: 350px;
+  right: 0px;
+  background: #111;
+  height: auto;
+  width: 1180px;
+
+  padding-top: 20px;
+  color: #fff;
+}
+.footer-content{
+  display: flex;
+  align-items: left;
+  justify-content: center;
+  flex-direction: row;
+  text-align: left;
+}
+.footer-content h3{
+  font-size: 30px;
+  font-weight: 500;
+  text-transform: capitalize;
+  line-height: 3rem;
+}
+.footer-content p{
+  max-width: 500px;
+  margin: 0px;
+  line-height: 28px;
+  font-size: 14px;
+  color: #cacdd2;
+}
+.socials{
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0 3rem 0;
+}
+.socials li{
+  margin: 0 10px;
+}
+.socials a{
+  text-decoration: none;
+  color: #fff;
+  border: 1.1px solid white;
+  padding: 5px;
+
+  border-radius: 50%;
+
+}
+.socials a i{
+  font-size: 1.1rem;
+  width: 20px;
+
+
+  transition: color .4s ease;
+
+}
+.socials a:hover i{
+  color: aqua;
+}
+
+@media (max-width:500px) {
+.footer-menu ul{
+display: flex;
+margin-top: 10px;
+margin-bottom: 20px;
+}
+}

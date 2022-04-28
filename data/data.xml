@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items>
+<item>
+    <Name> Current Reservoir Level: All India (m) </Name>
+    <Rate> 49,259.690 </Rate>
+    </item>
+<item>
+    <Name>India Current Reservoir Level: Southern (m)</Name>
+    <Rate> 17,382.840</Rate>
+</item>
+<item>
+    <Name>India Current Reservoir Level: Central (m)</Name>
+    <Rate> 7,488.460</Rate>
+    </item>
+<item>
+    <Name>India Current Reservoir Level: Northern (m)</Name>
+    <Rate> 3,337.650</Rate>
+    </item>
+<item>
+    <Name>India Current Reservoir Level: Eastern (m)</Name>
+    <Rate> 6,247.260</Rate>
+    </item>
+
+</items>
