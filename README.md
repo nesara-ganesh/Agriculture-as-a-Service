@@ -7,8 +7,7 @@ Creating a single platform that allows farmers to easily access all the necessar
 Responsibilities:
 •Collection of data from sources for the services implemented (Scrapy, APIs)
 •Creating a dashboard that houses the services (HTML, CSS, JavaScript)
-•Making the dashboard highly available and scalable with cloud technology
-• Using Micro services and APIs for making the application light
 
+#index.html is the starting page that redirects to different functionalities
 #Scraped data is fed as an XML file in this sample code
 #Weather API URL need to be updated in the .js file for functionality of the Weather API
